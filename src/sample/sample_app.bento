@@ -1,0 +1,37 @@
+/** 
+ *  Sample Bento application
+ **/
+
+site sample_app [=
+
+    boolean sandbox_enabled = true
+
+    init [=
+        log("sample_app.init called");
+    =]
+
+    session_init [=
+        log("sample_app.session_init called");
+    =]
+
+    
+
+
+
+
+    /** The base class for all pages in the application **/
+    page(*) sample_app_page(params{}) [=
+
+        
+
+
+    =]
+
+
+    sample_app_page index [=
+
+    =]
+
+
+=]
+
