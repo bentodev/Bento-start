@@ -14,16 +14,9 @@ site sample_app [=
         log("sample_app.session_init called");
     =]
 
-    
-
-
-
 
     /** The base class for all pages in the application **/
     page(*) sample_app_page(params{}) [=
-
-        
-
 
     =]
 

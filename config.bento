@@ -3,18 +3,12 @@
  --/
 
 [=
-    /** The primary site. **/
-    site_config main_site = sample_config
+    /** The primary site; requests are directed here by default. **/
+    site_config main_site = welcome_config
 
-    /** All the other sites that the server should make available.  It is not
-     *  necessary to include the primary site in this list, but it is allowed.
+    /** All the sites that the server should make available by name. 
      **/ 
-    site_config[] all_sites = [ sample_config, test_sample_config ] 
-    
-    /** The site config table allows lookup of site configuration by name.  It is
-     *  generated automatically from the all_sites list.
-     **/
-    site_config{} site_config_table = { for site_config sc in all_sites [= sc.name: sc =] }
+    site_config[] all_sites = [ welcome_config, sample_config, test_sample_config ] 
     
     /** If true, the sites in all_sites share the main_site core instead of
      *  loading their own.
@@ -69,6 +63,13 @@
     
     /--- config objects for available sites ---/
 
+    /-- Welcome to Bento --/
+    site_config welcome_config [=
+        name = "welcome_app"
+        bentopath = "src/welcome"
+        filepath = "resources/welcome"
+    =]    
+
     /-- sample app --/
     site_config sample_config [=
         name = "sample_app"
@@ -84,5 +85,8 @@
     =]    
 
 
-
+    /** The site config table allows lookup of site configuration by name.  It is
+     *  generated automatically from the all_sites list.
+     **/
+    site_config{} site_config_table = { for site_config sc in all_sites [= sc.name: sc =] }
 =]

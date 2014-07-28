@@ -1,0 +1,31 @@
+/** 
+ *  Welcome to Bento
+ **/
+
+site welcome_app [=
+
+    boolean sandbox_enabled = true
+
+    init [=
+        log("welcome_app.init called");
+    =]
+
+    session_init [=
+        log("welcome_app.session_init called");
+    =]
+
+    
+    /** The base class for all pages in the application **/
+    page(*) welcome_app_page(params{}) [=
+
+    =]
+
+    welcome_app_page index [=
+        title = "Bento-start" 
+
+        [| <h1>Welcome to Bento</h1> |]
+    =]
+
+
+=]
+
